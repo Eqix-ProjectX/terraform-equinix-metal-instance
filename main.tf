@@ -17,6 +17,7 @@ locals {
   packages:
     - python3-pip
   runcmd:
+    - apt update -y
     - sudo apt install python3-pip
     - pip install -U pip
     - pip install netmiko
