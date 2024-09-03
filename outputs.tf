@@ -8,5 +8,5 @@ output "pip" {
   value = equinix_metal_device.metal.*.access_public_ipv4
 }
 output "bond_0" {
-  value = equinix_metal_device.metal.ports
+  value = equinix_metal_device.metal.*.ports
 }
