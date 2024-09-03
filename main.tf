@@ -9,6 +9,12 @@ resource "equinix_metal_device" "metal" {
   user_data        = local.config
 }
 
+resource "equinix_metal_device_network_type" "hybrid" {
+  count     = var.nums
+  device_id = equinix_metal_device.metal[count.index].id
+  type      = "hybrid"
+}
+
 locals {
   config = <<-EOF
   #cloud-config
