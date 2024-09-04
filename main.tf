@@ -15,6 +15,11 @@ resource "equinix_metal_device_network_type" "hybrid" {
   type      = "hybrid"
 }
 
+resource "equinix_metal_device_network_type" "bonded" {
+  device_id = equinix_metal_device.metal[count.index].id
+  type = "hybrid-bonded"
+}
+
 locals {
   config = <<-EOF
   #cloud-config
