@@ -9,15 +9,10 @@ resource "equinix_metal_device" "metal" {
   user_data        = local.config
 }
 
-resource "equinix_metal_device_network_type" "hybrid" {
+resource "equinix_metal_device_network_type" "hybrid-bonded" {
   count     = var.nums
   device_id = equinix_metal_device.metal[count.index].id
-  type      = "hybrid"
-}
-
-resource "equinix_metal_device_network_type" "bonded" {
-  device_id = equinix_metal_device.metal[count.index].id
-  type = "hybrid-bonded"
+  type      = "hybrid-bonded"
 }
 
 locals {
