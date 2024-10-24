@@ -7,6 +7,9 @@ resource "equinix_metal_device" "metal" {
   billing_cycle    = var.billing_cycle
   project_id       = var.project_id
   user_data        = local.config
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "equinix_metal_device_network_type" "hybrid-bonded" {
